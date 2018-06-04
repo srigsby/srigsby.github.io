@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        1.62
+    </title>
+    <style>
+        .grid{
+            display:grid;
+            grid-gap: 20px;
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-rows: 2fr 1fr 2fr;
+            /* grid-template-rows: 100px 200px 100px; */
+      
+        }   
+
+        .grid > div{
+            background: #eee;
+            padding: 1em;
+        }
+
+        .grid > div:nth-child(odd){
+            background:#ddd;
+        }
+
+        img {
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div>tent</div>
+        <div class="full">really</div>
+        <div>hi</div>
+        <div>box</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eos esse sint.</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit.</div>        
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div><img src="alma-mater.jpg" alt="alma mater" height="150"></div>
+        <div><img src="reaction.png" alt="shape in space" height="150"></div>
+    </div>
+    <div>
+        
+    </div>
+</body>
+</html>
