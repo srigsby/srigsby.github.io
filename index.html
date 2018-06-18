@@ -1,79 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="UTF-8"> 
 <head>
     <title>
-        1.62
+        1.62/close enough
     </title>
     <style>
-        .grid{
-            display:grid;
-            grid-gap: 20px;
-            grid-template-columns: 2fr 3fr 2fr;
-            grid-auto-rows: minmax(100px, auto);
-            /* grid-template-rows: 2fr 1fr 2fr; */
-            /* grid-template-rows: 100px 200px 100px; */
-      
-        }   
+      /* TODO: remove external dependency */
 
-        .grid > div, .grid2 > div, .grid3 > div{
-            background: #eee;
-            padding: 1em;
-        }
+      /* @import url('assets/fonts'); */
+      /* @font-face{
+        font-family: 'Roboto';
+        src:url('assets/fonts/Roboto-Regular.tff');
+      } */
+      @import url('https://fonts.googleapis.com/css?family=Roboto');
+      * {
+        font-family: 'Roboto', sans-serif;
+      }
+      .grid{
+          display:grid;
+          grid-gap: 20px;
+          grid-template-columns: 2fr 3fr 2fr;
+          grid-auto-rows: minmax(100px, auto);
+          /* grid-template-rows: 2fr 1fr 2fr; */
+          /* grid-template-rows: 100px 200px 100px; */
+          padding: 1em;
+    
+      }   
 
-        .grid > div:nth-child(odd), .grid2 > div:nth-child(odd){
-            background:#ddd;
-        }
+      .grid > div, .grid2 > div, .grid3 > div{
+          background: #f4f0ec; /* isabelline */
+          padding: 1em;
+      }
 
-        .grid2{
-            display:grid;
-            grid-gap: 5px;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+      .grid > div:nth-child(odd), .grid2 > div:nth-child(odd){
+          background:#ddd;
+      }
 
-        .grid3{
-            display:grid;
-            grid-gap: 5px;
-            grid-template-columns: 1fr 1fr;
-            padding-top: 4em;
-        }       
+      .grid2{
+          display:grid;
+          grid-gap: 5px;
+          grid-template-columns: 1fr 1fr 1fr;
+      }
+      .grid22{
+          display:grid;
+          grid-gap: 5px;
+          grid-template-columns: 1fr 1fr;
+      }
+      .grid-container--fit{
+          display:grid;
+          grid-gap: 5px;
+          grid-template-columns: repeat(auto-fill, 1);
 
-        .padd-top{
-            padding-top:5em;
-        }    
+      }
+      .grid3{
+          display:grid;
+          grid-gap: 5px;
+          grid-template-columns: 1fr 1fr;
+          padding-top: 4em;
+      }       
 
-        .box1{
-            /* align-self:start; */
-            grid-column:1/3;
-        }
+      .padd-top{
+          padding-top:5em;
+      }    
 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      .box1{
+          /* align-self:start; */
+          grid-column:1/3;
+      }
+
+      .bucket{
+          /* background:#3064a0; */
+          background: #f4f0ec;
+          text-align: center;
+      }
+
+      img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+      }
     </style>
 </head>
-<body>
-    <div class="grid">
-        <div class="box1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non nobis voluptatibus labore hic, quas unde. Nihil earum maiores iste expedita?</div>
-        <div class="grid3">
-            <img src="assets/alma-mater.jpg" alt="other alma mater" height="150">
-            <img src="assets/green-screen.jpg" alt="shape in space" height="150">
-            <!-- <img src="reaction.png" alt="shape in space" height="150"> -->
-        </div>        
-        <div class="full">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, deserunt? Eos, dicta?</div>
-        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius molestias cumque beatae rerum totam, odio consequatur, alias enim eligendi dolores pariatur aperiam nemo repellat quaerat accusamus saepe voluptate fugit! Sed assumenda velit voluptatibus amet earum rem exercitationem non quo labore quasi. Animi architecto, vel neque asperiores beatae qui nihil, rerum deserunt omnis accusantium, tempore ex obcaecati nisi est optio et aperiam rem? Tempora in perspiciatis culpa vel possimus mollitia consequatur, consectetur eum incidunt tempore labore maxime rerum eos beatae sed quo quasi quidem velit ratione voluptatum? Aliquam accusantium tenetur repudiandae, deserunt, ratione minus iure sed nihil odio fugiat accusamus?</div>
-        <div class="grid2">
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eos esse sint.</div>
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit.</div>        
-            <div>Lorem ipsum dolor sit amet.</div>
-            <div>Lorem, ipsum dolor.</div>
-            <div></div>
-        </div>            
-    </div>
-    <!-- <div class="padd-top"><img src="assets/trying-to-be-fair/plane-color-speed-artifact-digital-rep.PNG" alt="plane-color-speed-artifact-digital-rep" height=800></div>
-    <div><img src="assets/trying-to-be-fair/plane-color-speed-artifact-digital-rep2.PNG" alt="plane-color-speed-artifact-digital-rep2" height=800></div>
-    <div><img src="assets/trying-to-be-fair/heli-speed-artifact.PNG" alt="heli-speed-artifact" height=800></div> -->
 
+<body>
+<div class="grid">
+  <div><pre>There was only one road back to L.A.
+US Interstate 15, just a flat-out
+high speed burn through Baker and
+Barstow and Berdoo, then on to the
+Hollywood Freeway straight into
+frantic oblivion: safety, obscurity,
+just another freak...
+
+in the Freak Kingdom<a href="https://www.youtube.com/watch?v=BhVsmq9mNtA">.</a></pre></div>
+
+  <div><span>Mentioned in <em>Youth (2015), Novalis</em> was the pseudonym and pen name of Georg Philipp Friedrich Freiherr von Hardenberg (2 May 1772 – 25 March 1801), a poet, author, mystic...</span></div>
+
+  <div>Whoever fights <b>monsters</b> should see to it that in the process he <b>does</b> not <b>become</b> a <b>monster</b>. And if you gaze long enough into an abyss, the abyss <b>will</b> gaze back into you.</span><a href="https://philosophy.stackexchange.com/questions/37918/why-according-to-nietzsche-is-becoming-a-monster-by-fighting-to-overthrow-mons" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://i_guess-google-uses-this-ping-thing-to-notify-it-of-link-click?">-Nietzsche</a></div>
+
+  <div>storyboard everything. you gotta have a plan.</div>
+  <div>you're always working, it's never done. you don't have to have a masterpiece everytime, go ahead and do the thing. don't wait. you've gotta be experienced at something</div>
+  <div>issue; fear of schedule. <br>daily column; goings on about town</div>
+  <div>code of ethics and behavior; if you don't follow these you will not work here. it's never too late to change things. code of professional ethics</div>
+  <div>a little bit of slope can make up for a whole lotta y-intercept <br> make things and be near people that excite you
+    <!-- <div class="katex-test"></div> -->
+  </div>
+  
+  <div>lets go for 84.1% success rate. <br> 1-0.98**n = 0.841 <br> n = ln(0.159)/ln(0.98)<br> n = 91.02
+    <p>redone with <a href="https://khan.github.io/KaTeX/">KaTeX</a></p>
+    <div id="katex-solve-for-n"></div>
+    <p>#BernoulliProcess. Lets use <a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution">`Negative binomial distribution`</a>, Pascal distribution.</p>
+    <div id="katex-mean-successes"></div>
+  </div>
+  <div>estimated <em>p</em>: 1/50 or 2% <img src="assets/sigma.jpg" alt="normal sigmas" height="222"></div>
+
+  <div>just build stuff</div>
+  <div>too weird to live; <del>too rare to die</del></div>
+<!-- </div>
+<div class="grid"> -->
+  <div>stack: LIFO</div>
+  <div>incl. timestamps?
+    <pre class="prettyprint lang-python">time.strftime('%Y-%m-%d %H:%M %z')<br />>> '2018-06-12 01:58 -0700'</pre>
+  </div>
+  <div>below = older,<br />above = newer</div>
+</div>
+
+<div class="grid">
+    <div class="box1"><pre>
+improvements: 
+* <del>if we latex eqns they will look nicer, there is certainly a js script for doing so</del>
+    </pre></div>
+    <div class="grid3">
+        <img src="assets/alma-mater.jpg" alt="other alma mater" height="150">
+        <img src="assets/green-screen.jpg" alt="shape in space" height="150">
+    </div>
+    <div>
+        <canvas id="glcanvas" width="150" height="150"></canvas>
+        <div class="bucket">
+                Isabelline 
+        </div>
+    </div>
+    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, deserunt? Eos, dicta?</div>
+
+    <div class="grid2">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eos esse sint.</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem, ipsum dolor.</div>
+        <div></div>
+    </div>
+</div>
+<!-- TODO: remove external dependency -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.js" integrity="sha384-y6SGsNt7yZECc4Pf86XmQhC4hG2wxL6Upkt9N1efhFxfh6wlxBH0mJiTE8XYclC1" crossorigin="anonymous"></script>
+<script>
+    // var element = document.getElementsByClassName('katex-test');
+    // katex.render("c = \\pm\\sqrt{a^2 + b^2}", element[0]);
+
+    var solve_for_n = document.getElementById('katex-solve-for-n');
+    katex.render(
+      "1 - 0.98^\\text{n} = 0.841 \\newline\
+      \\text{n} = \\dfrac{\ln(0.159)}{\ln(0.98)} \\newline\
+      \\boxed{\\text{n} = 91.02}",
+      solve_for_n
+    );
+
+    var mean_successes = document.getElementById('katex-mean-successes');
+    katex.render(
+      "\\text{NB}("
+    )
+</script>
+
+<!-- <script src="gl-matrix.js"></script>
+<script src="webgl-demo.js"></script> -->
+<!-- TODO: remove external dependencies -->
+<!-- TODO: save and distrib locally seems to be easy to run into rate limit -->
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> 
 </body>
 </html>
