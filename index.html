@@ -5,6 +5,8 @@
     <title>
         1.62/close enough
     </title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <style>
       /* TODO: remove external dependency */
 
@@ -80,10 +82,64 @@
           margin-left: auto;
           margin-right: auto;
       }
+      /* The navigation bar */
+      .navbar {
+          overflow: hidden;
+          background-color: #000;
+          color: azure;
+          top: 0; /* Position the navbar at the top of the page */
+          height: 50px;
+          width: 100%; /* Full width */
+          padding-top: 25px;
+      }
+      .navbar a{
+        color: azure;
+        text-align: center;
+        padding: 15px 20px;
+        text-decoration: none;
+      }
+      .navbar a:hover{
+        text-decoration: underline;
+      }
+      .main{
+        margin-top: 65px;
+      }
     </style>
 </head>
 
 <body>
+
+<main>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+    </div>  
+  <section>
+    <h2>descriptive, useful header</h2>
+    <p>this is a good model & it fits the data well. 04</p>
+    <div id="eqn000"></div> Bell's Inequality. Logic and integers, that's bedrock stuff. 
+    <!-- TODO: for static katex-ed equations save&serve rather than generate in page each time -->
+    <p>(decision | options)</p><p>optimal one tack path finding</p>
+
+  </section>
+  <section>
+    <h2>level up</h2>
+    <p>- state change - CRUD</p>
+    <p>- authenticate</p>
+    <p>- access/portal</p>
+    <p>- logs</p>
+    <p>- sparklines</p>
+  </section>
+
+  <section>
+    <h3>notes from a random underground</h3>
+    <button onclick="alert()">sCriBbLeS</button>
+    <p>function support in <a href="https://khan.github.io/KaTeX/function-support.html">KaTeX</a></p>
+
+  </section>
+</main>
+
 <div class="grid">
   <div><pre>
     There was only one road back to L.A.
@@ -95,13 +151,9 @@
     just another freak in the Freak
     Kingdom<a href="https://www.youtube.com/watch?v=BhVsmq9mNtA">.</a>
   </pre></div>
-
-  <div></div>
-
-
-
-
-  
+  <div id="ajax">
+    <h2>`Change Content`</h2><button type="button" onclick="loadDoc()">Change Content</button>
+  </div>
   <div>estimated <em>p</em>: 1/50 or 2%. <br />let's go for 84.1% success rate. <br> 1-0.98**n = 0.841 <br> n = ln(0.159)/ln(0.98)<br> n = 91.02
     <p>redone with <a href="https://khan.github.io/KaTeX/">KaTeX</a></p>
     <div id="katex-solve-for-n"></div>
@@ -111,8 +163,7 @@
   <div><img src="assets/sigma.jpg" alt="normal sigmas" height="222"></div>
   <div></div>
   <div>too weird to live; <del>and too rare to die</del></div>
-<!-- </div>
-<div class="grid"> -->
+
   <div></div>
   <div>incl. timestamps?
     <pre class="prettyprint lang-python">time.strftime('%Y-%m-%d %H:%M %z')<br />>> '2018-06-12 01:58 -0700'</pre>
@@ -132,22 +183,34 @@ improvements:
     <div>
         <canvas id="glcanvas" width="150" height="150"></canvas>
         <div class="bucket">
-                Isabelline 
+          Isabelline 
         </div>
     </div>
     <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, deserunt? Eos, dicta?</div>
 
     <div class="grid2">
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eos esse sint.</div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit.</div>
-        <div>Lorem ipsum dolor sit amet.</div>
-        <div>Lorem, ipsum dolor.</div>
-        <div></div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eos esse sint.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit.</div>
+      <div>Lorem ipsum dolor sit amet.</div>
+      <div>Lorem, ipsum dolor.</div>
+      <div></div>
     </div>
 </div>
 <!-- TODO: remove external dependency -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.js" integrity="sha384-y6SGsNt7yZECc4Pf86XmQhC4hG2wxL6Upkt9N1efhFxfh6wlxBH0mJiTE8XYclC1" crossorigin="anonymous"></script>
+<script> // AJAX
+  function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("ajax").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+  }  
+</script>
 <script>
     // var element = document.getElementsByClassName('katex-test');
     // katex.render("c = \\pm\\sqrt{a^2 + b^2}", element[0]);
@@ -159,6 +222,9 @@ improvements:
       \\boxed{\\text{n} = 91.02}",
       solve_for_n
     );
+
+    var eqn000 = document.getElementById('eqn000');
+    katex.render("\N(A,\\overline{B})+\N(B,\\overline{C})\\geq \N(A,\\overline{C} )", eqn000)
 
     var mean_successes = document.getElementById('katex-mean-successes');
     // katex.render(
