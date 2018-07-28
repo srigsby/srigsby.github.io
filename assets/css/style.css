@@ -41,6 +41,11 @@
   grid-column:1/3;
 }
 
+.simple-box{
+  display:grid;
+  grid-template-columns: 1fr;
+}
+
 .bucket{
   /* background:#3064a0; */
   background: #f4f0ec;
@@ -74,7 +79,18 @@ img {
 .main{
   margin-top: 65px;
 }
+
 video {
-  width: 100%;
+  width: 90%;
   padding: 1em;
+  align-self: center;
+  justify-self: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  border: 1em solid black;
+  background: black;
 }
