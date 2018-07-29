@@ -86,11 +86,17 @@ video {
   align-self: center;
   justify-self: center;
 }
-
-.grid-container {
+.col-thirds {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
   border: 1em solid black;
   background: black;
+}
+
+.a-flexbox{
+  display: flex;
+}
+.one-f{
+  flex: 1;
 }
