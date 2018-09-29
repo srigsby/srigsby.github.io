@@ -37,9 +37,9 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var image = new Image;
-image.src = "roy_resize.jpg";
-image.onload = roydraw;
+// var image = new Image;
+// image.src = "roy_resize.jpg";
+// image.onload = siteLocations;
 const NUM_OF_SITES = 16; 
 
 var svg = d3.select("svg")
@@ -57,7 +57,7 @@ var sites = d3.range(NUM_OF_SITES)
     .map(function(d) { return [Math.random() * width, Math.random() * height]; });
 
 var voronoi = d3.voronoi()
-    .extent([[-1, -1], [width + 1, height + 1]]);
+    // .extent([[-1, -1], [width + 1, height + 1]]);
 
 var polygon = svg.append("g")
     .attr("class", "polygons")
@@ -65,37 +65,35 @@ var polygon = svg.append("g")
     .data(voronoi.polygons(sites))
     .enter().append("path")
     .attr("fill", "url(#img1)")
-  // draws polygon set for the first time
+    // draws shape for the first time
     .call(redrawPolygon);
 
 
 function redrawPolygon(polygon) {
   polygon
       .attr("d", function(d) { 
-        //   console.log(d);
           return d ? "M" + d.join("L") + "Z" : null; 
         });
-    //   .attr("fill", "url(#img1)");
 }
 
-function roydraw() {
-    var deep = d3.selectAll("path");
-    for (var site in sites) {
-        x = Math.round(sites[site][0]);
-        y = Math.round(sites[site][1]);
-        console.log(x,y);
-    }
-    // console.log(sites);
-    // console.log(deep);
-    // for (var prop1 in deep) {
-    //     if (prop1 == "_groups") {
-    //         for (var prop2 in deep[prop1]) {
-    //             for (var prop3 in deep[prop1][prop2]) {
-    //                 console.log(typeof deep[prop1][prop2][prop3]);
-    //             }
-    //         }
-    //     }
-    // }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
 }
+
+const sleepThenReload = async() => {
+    await sleep(5000);
+    location.reload();
+}
+
+sleepThenReload();
+
+// function siteLocations() {
+//     var deep = d3.selectAll("path");
+//     for (var site in sites) {
+//         x = Math.round(sites[site][0]);
+//         y = Math.round(sites[site][1]);
+//         console.log(x,y);
+//     }
+// }
 
 </script>
