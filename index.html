@@ -21,27 +21,21 @@
   /* fill: #fff; */
 }
 </style>
-
-<!-- <svg width="777" height="999"> -->
-<svg width="444" height="555">
-<defs>
-        <!-- <pattern id="img1" patternUnits="objectBoundingBox" width="300" height="600"> -->
-        <!-- <pattern id="img1" patternUnits="userSpaceOnUse" width="1111" height="999"> -->
-        <pattern id="img1" patternUnits="userSpaceOnUse" width="666" height="666">
-            <!-- <image xlink:href="ignore/roy_resize.jpg" x="-222" y="0" width="1111" height="999" /> -->
-            <image xlink:href="https://upload.wikimedia.org/wikipedia/en/d/df/Roy_Lichtenstein_Drowning_Girl.jpg" x="-111" y="0" width="666" height="666" />
-            
+<svg width="628" height="636">
+    <defs>
+        <!-- patternUnits="objectBoundingBox" OR "userSpaceOnUse" -->
+        <!-- xlink:href="ignore/roy_resize.jpg" -->
+        <pattern id="img1" patternUnits="userSpaceOnUse" width="628" height="636">
+            <image xlink:href="https://upload.wikimedia.org/wikipedia/en/d/df/Roy_Lichtenstein_Drowning_Girl.jpg" x="-33" y="-25" width="777" height="820" />
         </pattern>
-</defs>
+    </defs>
 </svg>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-// var image = new Image;
-// image.src = "roy_resize.jpg";
-// image.onload = siteLocations;
 const NUM_OF_SITES = 16; 
+const KEEP_RELOADING = false;
 
 var svg = d3.select("svg")
         // .on("touchmove mousemove", logposition)
@@ -58,7 +52,7 @@ var sites = d3.range(NUM_OF_SITES)
     .map(function(d) { return [Math.random() * width, Math.random() * height]; });
 
 var voronoi = d3.voronoi()
-    // .extent([[-1, -1], [width + 1, height + 1]]);
+    .extent([[-1, -1], [width + 1, height + 1]]);
 
 var polygon = svg.append("g")
     .attr("class", "polygons")
@@ -77,16 +71,16 @@ function redrawPolygon(polygon) {
         });
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-const sleepThenReload = async() => {
-    await sleep(5000);
-    location.reload();
-}
-
-sleepThenReload();
+if (KEEP_RELOADING == true) {
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+    const sleepThenReload = async() => {
+        await sleep(5000);
+        location.reload();
+    }
+    sleepThenReload();
+} else { console.log('not reloading.');}
 
 // function siteLocations() {
 //     var deep = d3.selectAll("path");
